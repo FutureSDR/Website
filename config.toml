@@ -6,3 +6,4 @@ output_dir = "dist"
 
 [markdown]
 highlight_code = true
+smart_punctuation = true
