@@ -70,7 +70,61 @@ Check the bBladeRF functionality with the integrated CLI:
 
 
 ### macOS
-Feel free to contribute, if you own a Mac.
+The installation is very similar to Linux. This guide assumes that you use Homebrew as package manager, but
+the binaries can also be found in e.g., MacPorts, or on Github.
+
+If you have not already installed Homebrew, follow the installation guide [here](https://brew.sh).
+
+Then install rust as described on the [rust website](https://www.rust-lang.org/tools/install).
+
+Reload bash to make rust and cargo available on the command line:
+
+`. ~/.profile`
+
+Clone the FutureSDR repository:
+
+`git clone https://github.com/FutureSDR/FutureSDR.git`
+
+SoapySDR can be installed using Homebrew
+
+`brew install soapysdr`
+
+**Apple Silicon**: While rust works very well with `aarch64-apple-darwin` (Apple Silicon, i.e., M1, M1 Pro, M1 Max, etc.),
+the rust compiler is not yet (as of May 2022) fully guaranteed to work, and cargo will by default compile to
+`x86_64-apple-darwin` and rely on Rosetta 2. However, if you have a `x86_64-apple-darwin` machine, the packages installed
+using Homebrew will by default be compiled for `aarch64-apple-darwin`, and therefore you need to compile FutureSDR for
+`aarch64-apple-darwin` as well. This can be done by specifying the `--target aarch64-apple-darwin` flag to cargo, 
+e.g., `cargo run --target aarch64-apple-darwin`.
+
+#### Device specific requirements
+Depending on your SDR hardware, you might need to install additional dependencies:
+
+##### RTL-SDR
+You might want to install rtl-sdr  tools and dev libraries for experimenting with your RTL-SDR device.
+This is not necessarily required, but helpful for debugging, testing etc:
+
+`brew install librtlsdr`
+
+###### BladeRF
+Install the BladeRF libraries using Homebrew:
+
+`brew install libbladerf`
+
+Download the most recent firmware and FPGA images from Nuand's website: [Firmware](https://www.nuand.com/fx3_images/), [FPGA images](https://www.nuand.com/fpga_images/).
+
+Flash them using:
+
+`bladeRF-cli --flash-firmware bladeRF_fw.img # Flash Firmware from repository`
+
+`bladeRF-cli --flash-fpga hostedx115.rbf # Flash FPGA from repository`
+
+If your projects require extension boards (e.g. for receiving FM radio) , they have to be enabled first. E.g.:
+
+`bladeRF-cli --exec "xb 200 enable"`
+
+Check the bBladeRF functionality with the integrated CLI:
+
+`bladeRF-cli -p`
 
 ### Windows
 
