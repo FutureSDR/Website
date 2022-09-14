@@ -3,6 +3,8 @@ title = "Introduction"
 template = "learn-section.html"
 +++
 
+{{ yt(id="G9SBruN9V-I") }}
+
 ## Installation
 
 - Clone the FutureSDR repository:<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
