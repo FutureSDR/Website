@@ -42,7 +42,7 @@ You can install it with
 rustup target add wasm32-unknown-unknown
 ```
 
-All web frontends and examples are compiled with [Trunk](https://trunkrs.dev/), a building and packaging tool for Rust WebAssembly projects.
+All web frontends and examples are compiled with [Trunk](https://trunkrs.dev/), a build and packaging tool for Rust WebAssembly projects.
 You can install it with
 
 ```bash
@@ -54,28 +54,31 @@ or one of the [other options](https://trunkrs.dev/#install) documented on their 
 
 ### Linux (Ubuntu 23.10)
 
-- Clone the FutureSDR repository:<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
-- Optionally, install SoapySDR:<br/>`sudo apt install -y libsoapysdr-dev soapysdr-module-all soapysdr-tools`
+- Clone the FutureSDR repository<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
+- Optionally, install SoapySDR<br/>`sudo apt install -y libsoapysdr-dev soapysdr-module-all soapysdr-tools`
 - Check, if your setup is working by running `cargo build` in the FutureSDR directory.
-- Continue, for example, with the [example applications](./examples).
+- Continue, for example, with the included [applications](/learn/examples).
 
 ### macOS
 
-These instructions assume that you use [Homebrew](https://brew.sh) as package manager.
-- Optionally, install SoapySDR: `brew install soapysdr`
+These instructions assume that you use the [Homebrew](https://brew.sh) as package manager.
+- Clone the FutureSDR repository<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
+- Optionally, install SoapySDR<br/>`brew install soapysdr`
 - Additional drivers are available in the [Pothos Homebrew tap](https://github.com/pothosware/homebrew-pothos/wiki).
-- Clone the FutureSDR repository:<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
+- Check, if your setup is working by running `cargo build` in the FutureSDR directory.
+- Continue, for example, with the included [applications](/learn/examples).
 
 ### Windows
 
-- [Visual Studio C++ Community Edition](https://visualstudio.microsoft.com/downloads/) (required components: Win10 SDK and VC++).
+- Install [Visual Studio C++ Community Edition](https://visualstudio.microsoft.com/downloads/) (required components: Win10 SDK and VC++).
 
-Visual Studio does not add its binaries and libraries to the PATH.
-Instead, it offers various pre-configured terminals that have a given toolchain available.
-Use the native toolchain for your system to build FutureSDR, e.g., *x64 Native Tools Command Prompt for VS 2022*.
+  Visual Studio does not add its binaries and libraries to the `PATH`.
+  Instead, it offers various terminal environments, configured for a given toolchain.
+  Please use the native toolchain for your system to build FutureSDR, e.g., *x64 Native Tools Command Prompt for VS 2022*.
 
-For SoapySDR-based hardware drivers:
-- [PothosSDR](https://downloads.myriadrf.org/builds/PothosSDR/) for pre-built SDR drivers. The installer offers to add the libraries to your `PATH`. Please do this.
+For SoapySDR hardware drivers:
+- [PothosSDR](https://downloads.myriadrf.org/builds/PothosSDR/) for pre-built SDR drivers.
+  The installer offers to add the libraries to your `PATH`. Make sure to check this option.
 - Install [bindgen dependencies](https://rust-lang.github.io/rust-bindgen/requirements.html#windows).
 - Run `volk_profile` on the command line.
 
@@ -84,11 +87,5 @@ If you run into this issue, either (1) use a filter to specify the driver manual
 The libraries are, by default, at `C:\Program Files\PothosSDR\lib\SoapySDR\modules0.8`.
 If, for example, SDRplay or UHD causes issues, move `sdrPlaySupport.dll` or `uhdSupport.dll` to a backup folder.
 
-### All Platforms
-
-To build the frontend:
-* Install [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-* Install the *wasm32* toolchain: `rustup target add wasm32-unknown-unknown`.
-* Install *wasm-pack*: `cargo install wasm-pack`.
-* Build: `cd frontend && npm install && make`.
-
+- Check, if your setup is working by running `cargo build` in the FutureSDR directory.
+- Continue, for example, with the included [applications](/learn/examples).
