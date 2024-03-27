@@ -14,6 +14,14 @@
                 }
             }
         },
+        "/learn/examples/" : {
+            "title": "Examples",
+            "sub": {
+                "/learn/examples/wlan/" : {
+                    "title": "WLAN"
+                }
+            }
+        },
         "/learn/accelerators/" : {
             "title": "Accelerators",
             "sub": {

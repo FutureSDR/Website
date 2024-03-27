@@ -7,30 +7,67 @@ template = "learn-section.html"
 
 ## Installation
 
+### Install Rust
+
+To install Rust, we recommend following the [instructions](https://www.rust-lang.org/tools/install) on their website.
+
+FutureSDR works with `stable` and `nightly` Rust versions.
+However, `nightly` allows for a few more performance optimizations and might, therefore, be preferred.
+
+In addition, working on the web GUI (i.e., extending and recompiling the frontend) requires nightly.
+This is due to [Leptos](https://leptos.dev/), our GUI framework of choice.
+It offers a nicer syntax with `nightly`, which we use in our frontend code.
+
+You can switch to `nightly` globally
+
+```bash
+rustup toolchain install nightly
+rustup default nightly
+  ```
+
+or only for your FutureSDR project
+
+```bash
+rustup toolchain install nightly
+cd <into your project or FutureSDR>
+rustup override set nightly
+```
+
+### Web GUI and Web SDR Applications
+
+To compile the web frontend and web SDR applications, the `wasm32-unknown-unknown` target is required.
+You can install it with
+
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+All web frontends and examples are compiled with [Trunk](https://trunkrs.dev/), a building and packaging tool for Rust WebAssembly projects.
+You can install it with
+
+```bash
+cargo install --locked trunk
+```
+
+or one of the [other options](https://trunkrs.dev/#install) documented on their website.
+
+
+### Linux (Ubuntu 23.10)
+
 - Clone the FutureSDR repository:<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
-
-### Linux (Ubuntu 22.04)
-
-- Install [Rust](https://www.rust-lang.org/tools/install).
-- Optionally, install SoapySDR drivers:<br/>`sudo apt install -y libsoapysdr-dev soapysdr-module-all soapysdr-tools`
+- Optionally, install SoapySDR:<br/>`sudo apt install -y libsoapysdr-dev soapysdr-module-all soapysdr-tools`
+- Check, if your setup is working by running `cargo build` in the FutureSDR directory.
+- Continue, for example, with the [example applications](./examples).
 
 ### macOS
 
 These instructions assume that you use [Homebrew](https://brew.sh) as package manager.
-- Install [Rust](https://www.rust-lang.org/tools/install).
 - Optionally, install SoapySDR: `brew install soapysdr`
 - Additional drivers are available in the [Pothos Homebrew tap](https://github.com/pothosware/homebrew-pothos/wiki).
-
-**Apple Silicon**: While rust works very well with `aarch64-apple-darwin` (Apple Silicon, i.e., M1, M1 Pro, M1 Max, etc.),
-the rust compiler is not yet (as of May 2022) fully guaranteed to work, and cargo will by default compile to
-`x86_64-apple-darwin` and rely on Rosetta 2. However, if you have a `x86_64-apple-darwin` machine, the packages installed
-using Homebrew will by default be compiled for `aarch64-apple-darwin`, and therefore you need to compile FutureSDR for
-`aarch64-apple-darwin` as well. This can be done by specifying the `--target aarch64-apple-darwin` flag to cargo, 
-e.g., `cargo run --target aarch64-apple-darwin`.
+- Clone the FutureSDR repository:<br/>`git clone https://github.com/FutureSDR/FutureSDR.git`
 
 ### Windows
 
-- Install [Rust](https://www.rust-lang.org/tools/install).
 - [Visual Studio C++ Community Edition](https://visualstudio.microsoft.com/downloads/) (required components: Win10 SDK and VC++).
 
 Visual Studio does not add its binaries and libraries to the PATH.
