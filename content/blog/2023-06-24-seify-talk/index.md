@@ -8,7 +8,7 @@ Seify is [FutureSDR's](https://github.com/FutureSDR/FutureSDR) Rust SDR hardware
 
 The preliminary talk is already on YouTube. A final version, including the live Q&A, will be available later.
 
-{{ yt(id="qVDaOwnkDfM") }}
+{{ yt(id="NytXsgbv-PE") }}
 
 The [slides](https://docs.google.com/presentation/d/1McroCCKE0aX01T-r-inOh8do3CY9Sgng0CCXJRMOjQQ/edit?usp=sharing) are also available:
 
