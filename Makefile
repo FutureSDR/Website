@@ -15,4 +15,5 @@ publications: ${REFS}
 
 .PHOHY: upload
 upload:
-	rsync -az --progress -e ssh --delete dist/ basti@fleark.de:/srv/www/futuresdr.org/
+	zola build
+	rsync -az --progress -e ssh --delete --exclude 'learn/' dist/ basti@fleark.de:/srv/www/futuresdr.org/
