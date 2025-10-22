@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <h1>Publications</h1>
+
+  {% set keys_raw = load_data(path="assets/futuresdr_publications.txt", format="plain") %}
+  {% set keys = keys_raw | split(pat="\n") %}
+
+  <ul class="pub-list">
+    {% for k in keys %}
+      {% set key = k
+        | regex_replace(pattern="\\s*#.*$", rep="")
+        | trim
+      %}
+      {% if key != "" %}
+        {% set refpath = "cache/" ~ key ~ "-ref.shtml" %}
+        {% set html = load_data(path=refpath, format="plain", required=false) %}
+
+        {% if html %}
+          <li>{{ html | safe }}</li>
+        {% else %}
+          <li>
+            MISSING SNIPPET FOR <code>{{ key }}</code>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h2 class="x-small">Copyright notice</h2>
+
+  <p class="x-small">Links to final or draft versions of papers are presented here to ensure timely dissemination of scholarly and technical work. Copyright and all rights therein are retained by authors or by other copyright holders. All persons copying this information are expected to adhere to the terms and constraints invoked by each author's copyright. In most cases, these works may not be reposted or distributed for commercial purposes without the explicit permission of the copyright holder.</p>
+
+  <p class="x-small">The following applies to all papers listed above that have IEEE copyrights: Personal use of this material is permitted. However, permission to reprint/republish this material for advertising or promotional purposes or for creating new collective works for resale or redistribution to servers or lists, or to reuse any copyrighted component of this work in other works must be obtained from the IEEE.</p>
+
+  <p class="x-small">The following applies to all papers listed above that are in submission to IEEE conference/workshop proceeedings or journals: This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible.</p>
+
+  <p class="x-small">The following applies to all papers listed above that have ACM copyrights: ACM COPYRIGHT NOTICE. Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, to republish, to post on servers, or to redistribute to lists, requires prior specific permission and/or a fee. Request permissions from Publications Dept., ACM, Inc., fax +1 (212) 869-0481, or permissions@acm.org.</p>
+
+  <p class="x-small">The following applies to all SpringerLink papers listed above that have Springer Science+Business Media copyrights: The original publication is available at www.springerlink.com.</p>
+
+  <p class="x-small centered">This page was automatically generated using BibDB and bib2web.</p>
+
+{% endblock content %}

@@ -58,19 +58,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
           <ul class="navbar-nav me-auto">
               {% set home_class = "" %}
-              {% set learn_class = "" %}
+              {% set publications_class = "" %}
               {% set blog_class = "" %}
-              {% if "/learn/" in current_path %}
-                 {% set learn_class = "active" %}
+              {% if "/publications/" in current_path %}
+                 {% set publications_class = "active" %}
               {% elif "/blog/" in current_path %}
                  {% set blog_class = "active" %}
               {% else %}
                  {% set home_class = "active" %}
               {% endif %}
               <li class="nav-item"><a class="nav-link {{home_class}}" href="/">Home</a></li>
-              <li class="nav-item"><a class="nav-link {{learn_class}}" href="/learn/">Learn</a></li>
               <li class="nav-item"><a class="nav-link {{blog_class}}" href="/blog/">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://docs.rs/futuresdr">API Docs</a></li>
+              <li class="nav-item"><a class="nav-link {{publications_class}}" href="/publications/">Publications</a></li>
+              <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="/learn/">Learn</a></li>
+              <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://docs.rs/futuresdr">API Docs</a></li>
           </ul>
           <ul class="navbar-nav d-none d-md-flex">
             <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/FutureSDR/"><i class="fab fa-twitter"></i></a></li>
@@ -99,7 +100,7 @@
   <footer>
     <div class="container">
 
-      &copy; Bastian Bloessl 2022
+      &copy; Bastian Bloessl 2025
       <ul id="socialmedia">
         <li><a target="_blank" rel="noopener noreferrer"  href="https://www.github.com/futuresdr/futuresdr" class="fab fa-github"></a></li>
         <li><a target="_blank" rel="noopener noreferrer"  href="https://www.twitter.com/FutureSDR/" class="fab fa-twitter"></a></li>

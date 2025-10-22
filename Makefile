@@ -1,6 +1,6 @@
 SHELL=bash
 
-REFS=$(shell sed -e 's/^/cache\//g' assets/publications.txt | sed -e 's/$$/-ref.shtml/g')
+REFS=$(shell cat assets/referenced_publications.txt assets/futuresdr_publications.txt | sort | uniq | sed -e 's/^/cache\//g'  | sed -e 's/$$/-ref.shtml/g')
 
 .PHONY: publications
 publications: ${REFS}
