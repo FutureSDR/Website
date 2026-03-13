@@ -60,6 +60,23 @@ pre {
     }
 }
 
+// Required by Zola's Giallo highlighter for multiline code blocks.
+.giallo-l {
+    display: inline-block;
+    min-height: 1lh;
+    width: 100%;
+}
+
+.giallo-ln {
+    display: inline-block;
+    user-select: none;
+    margin-right: 1rem;
+    padding: 0.4em;
+    min-width: 3ch;
+    text-align: right;
+    opacity: 0.6;
+}
+
 // ---------------------------- Learn ----------------------------
 ul.learn {
     list-style: none;
@@ -302,4 +319,3 @@ ol.pub-list {
         }
     }
 }
-

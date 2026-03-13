@@ -5,5 +5,7 @@ generate_feeds = true
 output_dir = "dist"
 
 [markdown]
-highlight_code = true
 smart_punctuation = true
+
+[markdown.highlighting]
+theme = "github-light"
