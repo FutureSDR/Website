@@ -16,4 +16,4 @@ publications: ${REFS}
 .PHOHY: upload
 upload:
 	zola build
-	rsync -az --progress -e ssh --delete --exclude 'learn/' dist/ nginx:/srv/futuresdr.org/
+	rsync -az --progress -e ssh --delete --exclude 'examples/' --exclude 'learn/' dist/ nginx:/srv/futuresdr.org/
