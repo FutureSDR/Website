@@ -55,7 +55,7 @@ pub struct NullSource<T: CpuSample> {
 
 So inside `work()` the block gets typed access to its actual buffer implementation.
 
-And if a block wants a GPU buffer, an in-place circuit buffer, a DMA buffer, or something completely different, it can use that concrete API directly.
+And if a block wants a GPU buffer, an in-place buffer, a DMA buffer, or something completely different, it can use that concrete API directly.
 
 ## Buffer Trait Structure
 
@@ -155,7 +155,7 @@ pub trait CpuBufferReader: BufferReader + Default {
 }
 ```
 
-Much less potential to shoot oneself in the food.
+Much less potential to shoot oneself in the foot.
 
 ## Block Macro
 
@@ -334,10 +334,10 @@ If there is no await, the compiler has a chance to inline the code.
 The old model did not have a nice way to mix `Send` and non-`Send` blocks.
 Normal native blocks had to be `Send`, while WASM lived in its own non-`Send` world.
 
-That lead to two limitations:
+That led to two limitations:
 
 - CPU blocks and buffers had to be thread-safe even when they only ever ran on one executor thread.
-- WASM blocks could not be distribute across workers, because a non-`Send` block cannot simply be created on one thread and moved to another later.
+- WASM blocks could not be distributed across workers, because a non-`Send` block cannot simply be created on one thread and moved to another later.
 
 ## Local Domains
 
@@ -401,7 +401,7 @@ If you want to give things a try, there are WASM examples for the HackRF: [Spect
 
 ## What's Next
 
-The next phase is (hopefully) less rewrite the runtime and more focused on individual components.
+The next phase is (hopefully) less rewriting the runtime and more focused on individual components.
 
 Some things I have in mind:
 
